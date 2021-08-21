@@ -106,9 +106,9 @@ class Question(models.Model):
     # Foreign key to lesson
     lesson = models.ManyToManyField(Lesson)
     # question text
-    question_text = models.TextField()
+    question_text = models.TextField(max_length=1000)
     # question grade/mark
-    grade = models.IntegerField()
+    grade = models.IntegerField(default=0)
 
     # <HINT> A sample model method to calculate if learner get the score of the question
     def is_get_score(self, selected_ids):
@@ -127,8 +127,8 @@ class Question(models.Model):
     # Indicate if this choice of the question is a correct one or not
     # Other fields and methods you would like to design
 class Choice(models.Model):
-    choice_text = models.TextField()
-    is_correct = models.BooleanField()
+    choice_text = models.TextField(max_length=1000)
+    is_correct = models.BooleanField(default=0)
     question = models.ManyToManyField(Question)
 
 # <HINT> The submission model
