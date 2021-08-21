@@ -28,10 +28,12 @@ class LessonAdmin(admin.ModelAdmin):
 # <HINT> Register Question and Choice models here
 class QuestionAdmin(admin.ModelAdmin):
     inlines = [ChoiceInLine]
+    list_display = ['question_text']
     exclude = ('choice',)
 
 class ChoiceAdmin(admin.ModelAdmin):
     inlines = [ChoiceInLine]
+    list_display = ['choice_text', ]
 
 admin.site.register(Course, CourseAdmin)
 admin.site.register(Lesson, LessonAdmin)
