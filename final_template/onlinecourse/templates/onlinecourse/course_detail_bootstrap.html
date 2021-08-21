@@ -1,3 +1,4 @@
+<!--course_detail_bootstrap-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -103,7 +104,7 @@
             {% if user.is_authenticated %}
             <button data-toggle="collapse" data-target="#exam" class="btn btn-primary btn-block">Start Exam</button>
             <div id="exam" class="collapse">
-                <form id="questionform" action="point to a submit view" method="post">
+                <form id="questionform" action="{% url 'onlinecourse:submit' course.pk %}" method="post">
                             <!--... for each question in the course ...-->
                             {% for lesson in course.lesson_set.all %}
                             {% for question in lesson.question_set.all %}
